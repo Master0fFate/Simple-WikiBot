@@ -13,10 +13,10 @@ async def wiki(ctx, *, search):
     data = response.json()
     summary = data.get("extract")
     if summary:
-        embed = discord.Embed(title=f"Search result of: {search}", description=summary, color=0xe91e63)
+        embed = discord.Embed(title=f"Search result of: {search}", description=summary, color=0xffffff)
         await ctx.reply(embed=embed)
     else:
-        embed2 = discord.Embed(title=f"Error", description="That wikipedia page does not exist.", color=0xe91e63)
+        embed2 = discord.Embed(title=f"Error", description="That wikipedia page does not exist.", color=0xffffff)
         await ctx.reply(embed=embed2)
     
 @bot.event
