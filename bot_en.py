@@ -3,6 +3,17 @@ from discord.ext import commands
 import requests
 import json
 
+
+def get_token():
+    try:
+        with open("token.json") as f:
+            return json.load(f)["token"]
+    except FileNotFoundError:
+        token = input("Please enter your bot token: ")
+        with open("token.json", "w") as f:
+            json.dump({"token": token}, f)
+        return token
+
 bot = commands.Bot(command_prefix='/', intents=discord.Intents.all())
 
 @bot.command()
@@ -31,4 +42,4 @@ async def on_ready():
     print("WikiBot by github.com/Master0fFate\n")
     print("Bot is ready...")
 
-bot.run("BOT_TOKEN")
+bot.run(get_token())
