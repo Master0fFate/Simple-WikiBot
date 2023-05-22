@@ -12,8 +12,4 @@ Type: py bot_en.py
 Most probably you do not have the required dependencies
 Install them using "pip install [dependency]"
 
->Setup
-
-On line 34 change "BOT_TOKEN" to your Bots token.
-
->Enjoy.
+Enjoy.
