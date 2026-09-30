@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "simple-wikibot"
+version = "2.0.0"
+description = "A small, asynchronous Wikipedia slash-command bot"
+requires-python = ">=3.11"
+dependencies = ["discord.py==2.7.1", "aiohttp>=3.12,<4"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "pytest-asyncio>=1,<2", "ruff>=0.13,<1"]
+
+[project.scripts]
+wikibot = "wikibot.bot:main"
+
+[tool.setuptools.packages.find]
+include = ["wikibot*"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "ASYNC"]
